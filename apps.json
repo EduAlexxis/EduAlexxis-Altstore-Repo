@@ -1,0 +1,33 @@
+{
+    "name": "EduAlexxis Apps",
+    "identifier": "com.edualexxis.repo",
+    "subtitle": "Apps by EduAlexxis.",
+    "description": "AltStore repository for apps developed by EduAlexxis.",
+    "iconURL": "https://i.imgur.com/Vtq089p.png",
+    "tintColor": "#7f7f7f",
+    "apps": [
+        {
+            "name": "ByeTunes",
+            "bundleIdentifier": "com.EduAlexxis.MusicManager",
+            "developerName": "EduAlexxis",
+            "subtitle": "Say goodbye to iTunes sync!",
+            "localizedDescription": "ByeTunes is a native iOS app that lets you inject music (MP3, M4A, FLAC, WAV) and ringtones directly into your device's media library—without needing a computer connection for every sync. It communicates directly with the iOS media database, giving you the power to manage your music on your terms.",
+            "iconURL": "https://i.imgur.com/Vtq089p.png",
+            "tintColor": "#7f7f7f",
+            "screenshots": [],
+            "versions": [
+                {
+                    "version": "1.0.2",
+                    "date": "2026-02-28T21:57:00-05:00",
+                    "size": 12000000,
+                    "downloadURL": "https://github.com/EduAlexxis/ByeTunes/releases/download/v1.0.2/ByeTunes.ipa"
+                }
+            ],
+            "appPermissions": {
+                "entitlements": [],
+                "privacy": {}
+            }
+        }
+    ],
+    "news": []
+}
