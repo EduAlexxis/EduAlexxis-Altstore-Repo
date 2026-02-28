@@ -1,0 +1,84 @@
+name: Update AltStore Repo
+on:
+  schedule:
+    - cron: '0 * * * *' # Check every hour
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Fetch Latest ByeTunes Release
+        id: fetch-release
+        run: |
+          LATEST_RELEASE=$(curl -s "https://api.github.com/repos/EduAlexxis/ByeTunes/releases/latest")
+          
+          # Extract metadata
+          TAG_NAME=$(echo "$LATEST_RELEASE" | jq -r '.tag_name')
+          VERSION=${TAG_NAME#v} # Remove 'v' prefix if it exists
+          PUBLISHED_AT=$(echo "$LATEST_RELEASE" | jq -r '.published_at')
+          
+          # Get the IPA asset
+          ASSET=$(echo "$LATEST_RELEASE" | jq -c '.assets[] | select(.name | endswith(".ipa"))' | head -n 1)
+          DOWNLOAD_URL=$(echo "$ASSET" | jq -r '.browser_download_url')
+          SIZE=$(echo "$ASSET" | jq -r '.size')
+          DESCRIPTION=$(echo "$LATEST_RELEASE" | jq -r '.body' | tr -d '\r')
+          
+          if [ -z "$DOWNLOAD_URL" ] || [ "$DOWNLOAD_URL" = "null" ]; then
+            echo "No IPA found in the latest release."
+            exit 0
+          fi
+          
+          echo "version=$VERSION" >> $GITHUB_ENV
+          echo "published_at=$PUBLISHED_AT" >> $GITHUB_ENV
+          echo "download_url=$DOWNLOAD_URL" >> $GITHUB_ENV
+          echo "size=$SIZE" >> $GITHUB_ENV
+          
+          # We need to pass the description safely to jq
+          # Use a file to store the description
+          echo "$DESCRIPTION" > release_notes.txt
+
+      - name: Update apps.json
+        if: env.version != ''
+        run: |
+          CURRENT_VERSION=$(jq -r '.apps[0].versions[0].version' apps.json)
+          
+          if [ "$CURRENT_VERSION" = "${{ env.version }}" ]; then
+            echo "Already at latest version ($CURRENT_VERSION)."
+            exit 0
+          fi
+          
+          echo "Updating to version ${{ env.version }}"
+          
+          # Create a JSON payload for the new version
+          jq -n \
+            --arg version "${{ env.version }}" \
+            --arg date "${{ env.published_at }}" \
+            --argjson size ${{ env.size }} \
+            --arg downloadURL "${{ env.download_url }}" \
+            --rawfile localizedDescription release_notes.txt \
+            '{version: $version, date: $date, size: $size, downloadURL: $downloadURL, localizedDescription: $localizedDescription}' > new_version.json
+            
+          # Insert the new version at the beginning of the versions array for the first app
+          jq --slurpfile newver new_version.json '.apps[0].versions = $newver + .apps[0].versions' apps.json > apps.tmp.json
+          mv apps.tmp.json apps.json
+          
+          # Clean up
+          rm new_version.json release_notes.txt
+          
+          echo "changed=true" >> $GITHUB_ENV
+
+      - name: Commit and Push Changes
+        if: env.changed == 'true'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add apps.json
+          git commit -m "Auto-update ByeTunes to v${{ env.version }}"
+          git push
