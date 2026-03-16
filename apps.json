@@ -1,33 +1,40 @@
 {
-    "name": "EduAlexxis Apps",
-    "identifier": "com.edualexxis.repo",
-    "subtitle": "Apps by EduAlexxis.",
-    "description": "AltStore repository for apps developed by EduAlexxis.",
-    "iconURL": "https://avatars.githubusercontent.com/u/64240653?v=4",
-    "tintColor": "#7f7f7f",
-    "apps": [
+  "name": "EduAlexxis Apps",
+  "identifier": "com.edualexxis.repo",
+  "subtitle": "Apps by EduAlexxis.",
+  "description": "AltStore repository for apps developed by EduAlexxis.",
+  "iconURL": "https://avatars.githubusercontent.com/u/64240653?v=4",
+  "tintColor": "#7f7f7f",
+  "apps": [
+    {
+      "name": "ByeTunes",
+      "bundleIdentifier": "com.EduAlexxis.MusicManager",
+      "developerName": "EduAlexxis",
+      "subtitle": "Say goodbye to iTunes sync!",
+      "localizedDescription": "ByeTunes is a native iOS app that lets you inject music (MP3, M4A, FLAC, WAV) and ringtones directly into your device's media library—without needing a computer connection for every sync. It communicates directly with the iOS media database, giving you the power to manage your music on your terms.",
+      "iconURL": "https://i.imgur.com/Vtq089p.png",
+      "tintColor": "#7f7f7f",
+      "screenshots": [],
+      "versions": [
         {
-            "name": "ByeTunes",
-            "bundleIdentifier": "com.EduAlexxis.MusicManager",
-            "developerName": "EduAlexxis",
-            "subtitle": "Say goodbye to iTunes sync!",
-            "localizedDescription": "ByeTunes is a native iOS app that lets you inject music (MP3, M4A, FLAC, WAV) and ringtones directly into your device's media library—without needing a computer connection for every sync. It communicates directly with the iOS media database, giving you the power to manage your music on your terms.",
-            "iconURL": "https://i.imgur.com/Vtq089p.png",
-            "tintColor": "#7f7f7f",
-            "screenshots": [],
-            "versions": [
-                {
-                    "version": "1.0.2",
-                    "date": "2026-02-28T16:00:00-05:00",
-                    "size": 12000000,
-                    "downloadURL": "https://github.com/EduAlexxis/ByeTunes/releases/download/v1.0.2/ByeTunes.ipa"
-                }
-            ],
-            "appPermissions": {
-                "entitlements": [],
-                "privacy": {}
-            }
+          "version": "V2.0",
+          "date": "2026-03-16T00:51:23Z",
+          "size": 12763223,
+          "downloadURL": "https://github.com/EduAlexxis/ByeTunes/releases/download/V2.0/ByeTunes.ipa",
+          "localizedDescription": "This is a really big update and i wanna say probably the biggest one for ByeTunes.\nA lot of things got added, improved and fixed in this version.\n\nMain thing to know first:\n\nRingtone injection for iOS 18 and lower is disabled for now.\nI tried hard to make it work properly with all the logs, databases and files some of you sent me, but at this point I really need an iOS 18 or lower device on my hands to fully debug it correctly.\nThanks to everybody who helped by sending logs and testing.\n\nNow for the good news.\n\nAdded a new in-app FLAC downloader tab.\nYou can now download songs straight from within ByeTunes without needing to leave the app.\n\nWith the new downloader you can:\n\nDownload individual songs\nQueue multiple songs\nDownload full albums\nChoose only specific songs from an album instead of downloading the whole thing\nDownloaded songs now go through Apple Music metadata fetching automatically, so songs added from the downloader should already come with much better metadata.\n\nAdded a new setting to keep downloaded songs locally.\nIf enabled, downloaded songs will also be saved inside the app folder.\nIf disabled, they are only used for injection and cleaned up later.\n\nImproved metadata fetching a lot.\nMetadata fetching from Apple Music is now much better and fills way more song fields correctly.\n\nThis includes better support for:\n\n- Full screen artwork\n- Animated artwork compatibility\n- Copyright info\n- Label/company\n- Disc numbers\n- Track numbers\n- Better album/song level metadata overall\n- Added automatic Music app killing before injection.\n- When injecting songs, ByeTunes now kills the Music app process first to reduce database corruption and random crashes as much as possible.\n- This was tested many times and made injection way more reliable.\n\nRemoved the ringtone tab on iOS 26.\nIt is not needed there anymore because iOS 26 already introduced native ringtone management.\n\nFixed song sorting.\nSongs now sort way better by song name and artist.\nVery big batch injections can still leave 1 or 2 songs a little out of place sometimes, but re-injecting those usually fixes it.\n\nFixed artwork getting overridden by other songs.\nThis was a major annoying bug and it should now be properly fixed.\n\nImproved big batch importing and injecting.\nLarge libraries are handled much better now, and importing/injecting big amounts of songs is way more stable than before.\n\nAdded snapshot backup/restore in settings.\nEven though database corruption is much less likely now, it is always better to have a safety option.\nYou can create a snapshot/backup and restore it later if something goes wrong.\n\nLast but not least I have added different devices/regions databases support. Turns out devices in different regions handle databases differently so now it should work regardless. \n\nThanks again to everybody helping test ByeTunes and sending logs, files and feedback.\nHope you guys enjoy this update.\n"
+        },
+        {
+          "version": "1.0.2",
+          "date": "2026-02-28T16:00:00-05:00",
+          "size": 12000000,
+          "downloadURL": "https://github.com/EduAlexxis/ByeTunes/releases/download/v1.0.2/ByeTunes.ipa"
         }
-    ],
-    "news": []
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      }
+    }
+  ],
+  "news": []
 }
