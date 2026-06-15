@@ -81,4 +81,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git add apps.json
           git commit -m "Auto-update ByeTunes to v$version"
+          git pull --rebase origin main
           git push
