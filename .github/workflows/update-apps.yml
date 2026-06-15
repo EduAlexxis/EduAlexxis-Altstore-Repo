@@ -21,7 +21,7 @@ jobs:
           
           # Extract metadata
           TAG_NAME=$(echo "$LATEST_RELEASE" | jq -r '.tag_name')
-          VERSION=${TAG_NAME#v} # Remove 'v' prefix if it exists
+          VERSION=$(echo "$TAG_NAME" | sed 's/^[vV]//') # Remove 'v' or 'V' prefix if it exists
           PUBLISHED_AT=$(echo "$LATEST_RELEASE" | jq -r '.published_at')
           
           # Get the IPA asset
@@ -49,19 +49,19 @@ jobs:
         run: |
           CURRENT_VERSION=$(jq -r '.apps[0].versions[0].version' apps.json)
           
-          if [ "$CURRENT_VERSION" = "${{ env.version }}" ]; then
+          if [ "$CURRENT_VERSION" = "$version" ]; then
             echo "Already at latest version ($CURRENT_VERSION)."
             exit 0
           fi
           
-          echo "Updating to version ${{ env.version }}"
+          echo "Updating to version $version"
           
           # Create a JSON payload for the new version
           jq -n \
-            --arg version "${{ env.version }}" \
-            --arg date "${{ env.published_at }}" \
-            --argjson size ${{ env.size }} \
-            --arg downloadURL "${{ env.download_url }}" \
+            --arg version "$version" \
+            --arg date "$published_at" \
+            --argjson size "$size" \
+            --arg downloadURL "$download_url" \
             --rawfile localizedDescription release_notes.txt \
             '{version: $version, date: $date, size: $size, downloadURL: $downloadURL, localizedDescription: $localizedDescription}' > new_version.json
             
@@ -80,5 +80,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add apps.json
-          git commit -m "Auto-update ByeTunes to v${{ env.version }}"
+          git commit -m "Auto-update ByeTunes to v$version"
           git push
