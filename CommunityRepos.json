@@ -1,1 +1,14 @@
-
+[
+  {
+    "name": "EduAlexxis Repo",
+    "url": "https://raw.githubusercontent.com/EduAlexxis/EduAlexxis-Altstore-Repo/main/apps.json",
+    "description": "EduAlexxis AltStore Repository",
+    "iconURL": null
+  },
+  {
+    "name": "AppTesters Repo",
+    "url": "https://repository.apptesters.org/",
+    "description": "AppTesters IPA Repository",
+    "iconURL": "https://apptesters.org/apptesters-512x512.png"
+  }
+]
