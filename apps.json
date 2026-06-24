@@ -20,7 +20,7 @@
           "version": "2.3",
           "date": "2026-06-15T23:30:00Z",
           "size": 14600000,
-          "downloadURL": "https://github.com/EduAlexxis/ByeTunes/releases/download/v2.3/ByeTunes.ipa",
+          "downloadURL": "https://github.com/EduAlexxis/ByeTunes/releases/download/v2.3/ByeTunes-HotFIx.ipa",
           "localizedDescription": "Say hello to ByeTunes 2.3! This update introduces a Support section in Settings including a Buy Me a Coffee link, a Supporters list loaded dynamically from GitHub with caching and loading fixes, and dynamic API configuration security updates."
         },
         {
