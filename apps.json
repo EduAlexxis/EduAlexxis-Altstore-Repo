@@ -2,7 +2,7 @@
   "name": "EduAlexxis Apps",
   "identifier": "com.edualexxis.repo",
   "subtitle": "Apps by EduAlexxis.",
-  "description": "AltStore repository for apps developed by EduAlexxis.",
+  "description": "Official repository for ByeTunes and other custom iOS utilities developed by EduAlexxis. Say goodbye to iTunes sync and manage your music library directly on your iOS device.",
   "iconURL": "https://avatars.githubusercontent.com/u/64240653?v=4",
   "tintColor": "#7f7f7f",
   "apps": [
