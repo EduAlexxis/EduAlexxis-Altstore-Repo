@@ -8,27 +8,21 @@ ByeTunes is an iOS app that lets you download and inject music and ringtones dir
 
 ## Direct Installation
 
-Tap one of the buttons below to add this repository directly to your preferred sideloading manager:
+To add this repository directly to your sideloading manager, visit the [repository website](https://edualexxis.github.io/EduAlexxis-Altstore-Repo/) and tap the installation buttons, or copy the URL below:
 
-[Add to AltStore](altstore://source?url=https://raw.githubusercontent.com/EduAlexxis/EduAlexxis-Altstore-Repo/main/apps.json) | [Add to SideStore](sidestore://source?url=https://raw.githubusercontent.com/EduAlexxis/EduAlexxis-Altstore-Repo/main/apps.json) | [Add to Scarlet](scarlet://source?url=https://raw.githubusercontent.com/EduAlexxis/EduAlexxis-Altstore-Repo/main/apps.json)
----|---|---
-
-> [!TIP]
-> If you prefer manual setup, copy and paste the raw source URL into your app manager:
-> `https://raw.githubusercontent.com/EduAlexxis/EduAlexxis-Altstore-Repo/main/apps.json`
+`https://raw.githubusercontent.com/EduAlexxis/EduAlexxis-Altstore-Repo/main/apps.json`
 
 ---
 
 ## Featured Apps
 
 ### ByeTunes
-**Say goodbye to iTunes sync!**
+ByeTunes lets you download and inject music and ringtones directly into your iOS library. You don't need a computer for syncing.
 
-*   **Direct Music Injection**: Add music straight to your iOS database.
-*   **Background Downloads & Live Activities**: Keep track of downloads directly from your Lock Screen or Dynamic Island.
-*   **Metadata Enrichment**: Automatically clean and fetch song metadata from Apple Music, Deezer, and iTunes.
-*   **On-Device Library Browser**: Manage playlists, edit metadata, and backup/restore your media on the fly.
-*   **Library Repair Tools**: Automatically fix ghost songs, alphabetical ordering, and missing artwork.
+- Inject music straight to your library.
+- Background downloads with Lock Screen progress.
+- Automatic metadata cleanup.
+- Edit metadata and playlists inside the app.
 
 ---
 
