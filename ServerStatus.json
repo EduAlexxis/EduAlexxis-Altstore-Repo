@@ -1,5 +1,5 @@
 {
-  "status": "dead",
+  "status": "maintenance",
   "updatedAt": "2026-10-07T12:00:00Z",
   "states": {
     "maintenance": {
@@ -14,7 +14,7 @@
       "buttonTitle": "Follow updates",
       "buttonURL": "https://discord.gg/your-invite",
       "eta": "2026-10-08T01:00:00Z",
-      "etaLabel": "Back around"
+      "etaLabel": "Back fuck you"
     },
     "dead": {
       "title": "Thanks for using ByeTunes",
