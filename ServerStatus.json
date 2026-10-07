@@ -1,3 +1,26 @@
 {
-  "status": "active"
+  "status": "maintenance",
+  "updatedAt": "2026-10-07T12:00:00Z",
+  "states": {
+    "maintenance": {
+      "showBanner": true,
+      "title": "Server Maintenance",
+      "message": "We are upgrading the download server. Downloads may be slow or fail for a while.",
+      "icon": "wrench.and.screwdriver.fill",
+      "color": "orange",
+      "blockDownloads": false,
+      "blockMessage": null,
+      "dismissible": false,
+      "buttonTitle": "Follow updates",
+      "buttonURL": "https://discord.gg/your-invite",
+      "eta": "2026-10-08T01:00:00Z",
+      "etaLabel": "Back around"
+    },
+    "dead": {
+      "title": "Thanks for using ByeTunes",
+      "message": "We had a good run. Hope you guys enjoyed it.",
+      "icon": "heart.fill",
+      "color": "pink"
+    }
+  }
 }
